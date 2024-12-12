@@ -1,0 +1,19 @@
+# requires variable config loading, such as:
+# docker stack deploy -c <(docker-compose config) proxy
+
+version: '3'
+services:
+    web:
+        build: web
+        image: cjpalmer/gitweb:0.1.0
+        volumes:
+        - /srv/git:/srv/git:ro
+        - ./gitweb.conf:/etc/gitweb.conf
+        ports:
+        - 80:80
+    cgi:
+        build: cgi
+        image: cjpalmer/gitweb-cgi:0.1.0
+        volumes:
+        - /srv/git:/srv/git:ro
+        - ./gitweb.conf:/etc/gitweb.conf
