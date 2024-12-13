@@ -1,4 +1,4 @@
-FROM nginx:1.27-alpine
+FROM alpine:3.21
 
 RUN apk add --no-cache git git-gitweb fcgiwrap perl-cgi
 
