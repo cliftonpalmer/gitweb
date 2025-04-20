@@ -6,7 +6,7 @@ networks:
         driver: overlay
 services:
     web:
-        image: cjpalmer/gitweb:0.2.0
+        image: cjpalmer/gitweb:0.2.1
         volumes:
         - /srv/git:/srv/git:ro
         - ./gitweb.conf:/etc/gitweb.conf
@@ -14,7 +14,7 @@ services:
         - proxy
         - backend
     cgi:
-        image: cjpalmer/gitweb-cgi:0.2.0
+        image: cjpalmer/gitweb-cgi:0.2.1
         environment:
         - BASE_URL=https://git.purplebirdman.com/
         volumes:
